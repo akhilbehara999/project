@@ -1,0 +1,6 @@
+/backend/__pycache__/
+/backend/.env
+/meal_planner.db
+/backend/meal_planner.db
+/frontend/node_modules/
+/frontend/dist/

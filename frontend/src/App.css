@@ -1,0 +1,198 @@
+/* ─── Reset & Base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+/* ─── App Shell ─────────────────────────────────────────────────────── */
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* ─── Header ────────────────────────────────────────────────────────── */
+.app-header {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  color: white;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.header-content { display: flex; align-items: center; gap: 16px; max-width: 860px; margin: 0 auto; }
+.logo { font-size: 48px; }
+.app-title { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+.app-tagline { font-size: 14px; opacity: 0.85; margin-top: 2px; }
+
+/* ─── Tab Bar ───────────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  background: white;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 0 24px;
+  gap: 4px;
+}
+.tab-btn {
+  background: none; border: none; cursor: pointer;
+  padding: 14px 20px; font-size: 15px; font-weight: 500;
+  color: #64748b; border-bottom: 3px solid transparent;
+  transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+  position: relative; bottom: -2px;
+}
+.tab-btn:hover { color: #f97316; }
+.tab-btn.active { color: #f97316; border-bottom-color: #f97316; font-weight: 600; }
+.badge {
+  background: #f97316; color: white; border-radius: 999px;
+  font-size: 11px; padding: 1px 7px; font-weight: 700;
+}
+
+/* ─── Main Content ──────────────────────────────────────────────────── */
+.main-content { flex: 1; max-width: 860px; margin: 0 auto; padding: 28px 20px; width: 100%; }
+
+/* ─── Cards ─────────────────────────────────────────────────────────── */
+.card {
+  background: white; border-radius: 16px;
+  padding: 28px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+.input-card { margin-bottom: 24px; }
+.section-title { font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 6px; }
+.subtitle { color: #64748b; font-size: 14px; margin-bottom: 20px; }
+
+/* ─── Input Row ─────────────────────────────────────────────────────── */
+.input-row { display: flex; gap: 10px; margin-bottom: 14px; }
+.text-input {
+  flex: 1; padding: 10px 16px; border: 2px solid #e2e8f0;
+  border-radius: 10px; font-size: 15px; transition: border-color 0.2s;
+  outline: none;
+}
+.text-input:focus { border-color: #f97316; }
+
+/* ─── Tags ──────────────────────────────────────────────────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tag {
+  background: #fff7ed; border: 1.5px solid #fed7aa;
+  color: #c2410c; border-radius: 999px;
+  padding: 5px 12px; font-size: 13px; font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+}
+.tag-remove {
+  background: none; border: none; cursor: pointer;
+  color: #c2410c; font-size: 16px; padding: 0;
+  line-height: 1;
+}
+.tag-remove:hover { color: #ef4444; }
+
+/* ─── Options Row ───────────────────────────────────────────────────── */
+.options-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.option-group { display: flex; flex-direction: column; gap: 6px; min-width: 160px; }
+.option-label { font-size: 13px; font-weight: 600; color: #475569; }
+.select-input {
+  padding: 9px 12px; border: 2px solid #e2e8f0; border-radius: 10px;
+  font-size: 14px; background: white; cursor: pointer; outline: none;
+  transition: border-color 0.2s;
+}
+.select-input:focus { border-color: #f97316; }
+
+/* ─── Buttons ───────────────────────────────────────────────────────── */
+.btn {
+  padding: 10px 18px; border-radius: 10px; border: none;
+  cursor: pointer; font-size: 14px; font-weight: 600;
+  transition: all 0.2s; white-space: nowrap;
+}
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-primary {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  color: white; font-size: 16px; padding: 13px 24px;
+}
+.btn-primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4); }
+.btn-secondary { background: #f1f5f9; color: #374151; border: 2px solid #e2e8f0; }
+.btn-secondary:hover { background: #e2e8f0; }
+.btn-delete {
+  background: #fef2f2; color: #dc2626; border: 2px solid #fecaca;
+  font-size: 13px; padding: 7px 14px; border-radius: 8px;
+}
+.btn-delete:hover { background: #fee2e2; }
+.full-width { width: 100%; }
+
+/* ─── Error / Loading ───────────────────────────────────────────────── */
+.error-box {
+  background: #fef2f2; color: #dc2626; border: 2px solid #fecaca;
+  padding: 12px 16px; border-radius: 10px; margin-bottom: 16px; font-size: 14px;
+}
+.loading-box {
+  display: flex; align-items: center; gap: 12px;
+  background: white; padding: 20px; border-radius: 16px;
+  border: 1px solid #e2e8f0; margin-bottom: 24px; color: #64748b;
+}
+.spinner {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 3px solid #e2e8f0; border-top-color: #f97316;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Plan Display ──────────────────────────────────────────────────── */
+.plan-title { font-size: 22px; font-weight: 700; color: #1e293b; }
+.plan-subtitle { color: #64748b; margin-bottom: 18px; font-size: 14px; }
+.meals-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+.meal-card {
+  background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 16px 20px;
+}
+.meal-day { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.meal-desc { color: #475569; font-weight: 500; }
+.meal-recipes { font-size: 14px; color: #374151; padding-left: 18px; }
+.toggle-btn {
+  background: none; border: 1px dashed #d1d5db; cursor: pointer;
+  color: #64748b; padding: 8px 14px; border-radius: 8px;
+  margin-top: 8px; font-size: 13px;
+}
+.toggle-btn:hover { color: #f97316; }
+.recipe-details { margin-top: 12px; font-size: 13px; color: #475569; }
+.recipe-section { margin-bottom: 14px; }
+.detail-text {
+  white-space: pre-wrap;
+  background: #f8fafc; padding: 12px; border-radius: 8px; font-size: 13px;
+}
+
+/* ─── Shopping List ─────────────────────────────────────────────────── */
+.shopping-section { margin-bottom: 24px; }
+.shopping-section h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.shopping-groups { display: flex; flex-direction: column; gap: 14px; }
+.shopping-group { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 18px; }
+.shopping-group ul { font-size: 14px; color: #374151; }
+.shopping-group h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 6px; }
+.empty-text { color: #94a3b8; font-size: 14px; }
+.save-plan { display: flex; gap: 10px; }
+.save-input { flex: 1; }
+
+/* ─── Saved Plans ───────────────────────────────────────────────────── */
+.saved-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.saved-count { font-size: 13px; color: #64748b; }
+.saved-list { display: flex; flex-direction: column; gap: 16px; }
+.saved-card {
+  background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 18px 22px;
+}
+.saved-header h3 { font-size: 16px; margin-bottom: 4px; }
+.saved-ingredients { font-size: 13px; color: #475569; }
+.date-badge { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+.saved-list .toggle-btn { margin-top: 12px; }
+.saved-list .recipe-details { margin-top: 14px; }
+.saved-meal { font-size: 14px; margin-bottom: 4px; }
+.saved-shopping { font-size: 13px; color: #475569; margin-top: 10px; }
+.saved-shopping ul { font-size: 13px; color: #475569; }
+
+/* ─── Empty State ───────────────────────────────────────────────────── */
+.empty-state { text-align: center; padding: 36px 20px; }
+.empty-text { font-size: 15px; color: #64748b; }
+.empty-sub { font-size: 13px; color: #94a3b8; }
+
+/* ─── Footer ────────────────────────────────────────────────────────── */
+.app-footer {
+  text-align: center; padding: 18px; color: #94a3b8; font-size: 13px;
+  border-top: 1px solid #e2e8f0; background: white;
+}
